@@ -1,11 +1,14 @@
 body {
   background-color: #ccc;
 }
-.header{
-    color:teal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.header {
+  color: teal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-style: italic;
 }
 .selections {
   display: flex;
