@@ -1,4 +1,5 @@
 const selectionButtons = document.querySelectorAll("[data-selection]");
+const finalColumn = document.querySelector("[data-final-column]");
 const SELECTIONS = [
   { name: "rock", emoji: "✊🏿", beats: "scissors" },
   { name: "paper", emoji: "✋🏿", beats: "rock" },
@@ -11,15 +12,26 @@ selectionButtons.forEach((selectionButton) => {
     const selection = SELECTIONS.find(
       (SELECTION) => SELECTION.name === selectionName
     );
-    const computerSelection = randomSelection();
-    const youWin = isWinner(selection, computerSelection);
-    const computerWin = isWinner(computerSelection, selection);
-    makeSelection(computerSelection);
+
+    makeSelection(selection);
   });
 });
 
 const makeSelection = (selection) => {
-  console.log(selection);
+  const computerSelection = randomSelection();
+  const youWin = isWinner(selection, computerSelection);
+  const computerWin = isWinner(computerSelection, selection);
+
+  addSelectionResult(computerSelection, computerWin);
+  addSelectionResult(selection, youWin);
+};
+
+const addSelectionResult = (selectn, win) => {
+  const div = document.createElement("div");
+  div.innerText = selectn.emoji;
+  div.classList.add("result-selection");
+  if (win) div.classList.add("winner");
+  finalColumn.after(div);
 };
 
 const isWinner = (pick, opponentPick) => {
