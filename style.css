@@ -1,6 +1,12 @@
 body {
   background-color: #ccc;
 }
+.header{
+    color:teal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .selections {
   display: flex;
   justify-content: center;
